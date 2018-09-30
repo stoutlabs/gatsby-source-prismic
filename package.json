@@ -1,7 +1,7 @@
 {
   "name": "gatsby-source-prismic-stoutlabs",
-  "version": "1.0.5",
-  "description": "Gatsby source plugin for building websites using prismic.io as the data source",
+  "version": "1.1.0",
+  "description": "Gatsby source plugin for building websites using prismic.io as the data source. Forked from Angelo Ashmore's original plugin.",
   "scripts": {
     "prepublish": "npm run build",
     "build": "babel src --out-dir .",
@@ -18,12 +18,17 @@
     "gatsby-plugin",
     "gatsby-source-plugin"
   ],
-  "author": "Daniel Stout <daniel@stoutlabs.com>",
+  "author": "Angelo Ashmore <angelo.ashmore@walltowall.com>",
+  "contributors": [
+    "Daniel Stout <daniel@stoutlabs.com>"
+  ],
   "license": "MIT",
   "dependencies": {
     "asyncro": "^3.0.0",
-    "gatsby-node-helpers": "^0.3.0",
     "gatsby-source-filesystem": "^2.0.1",
+    "json-stringify-safe": "^5.0.1",
+    "lodash": "^4.17.11",
+    "p-is-promise": "^2.0.0",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^1.1.5"
   },

@@ -1,31 +1,31 @@
-import createNodeHelpers from 'gatsby-node-helpers'
-import fetchData from './fetch'
-import { normalizeFields } from './normalize'
+import createNodeHelpers from "./helpers";
+import fetchData from "./fetch";
+import { normalizeFields } from "./normalize";
 
-const nodeHelpers = createNodeHelpers({ typePrefix: 'Prismic' })
-const { createNodeFactory, generateNodeId } = nodeHelpers
+const nodeHelpers = createNodeHelpers({ typePrefix: "Prismic" });
+const { createNodeFactory, generateNodeId } = nodeHelpers;
 
 export const sourceNodes = async (gatsby, pluginOptions) => {
-  const { boundActionCreators, store, cache } = gatsby
-  const { createNode, touchNode } = boundActionCreators
+  const { boundActionCreators, store, cache, createNodeId } = gatsby;
+  const { createNode, touchNode } = boundActionCreators;
   const {
     repositoryName,
     accessToken,
     linkResolver = () => {},
     htmlSerializer = () => {},
-    fetchLinks = [],
-  } = pluginOptions
+    fetchLinks = []
+  } = pluginOptions;
 
   const { documents } = await fetchData({
     repositoryName,
     accessToken,
-    fetchLinks,
-  })
+    fetchLinks
+  });
 
   await Promise.all(
     documents.map(async doc => {
       const Node = createNodeFactory(doc.type, async node => {
-        node.dataString = JSON.stringify(node.data)
+        node.dataString = JSON.stringify(node.data);
         node.data = await normalizeFields({
           value: node.data,
           node,
@@ -33,18 +33,19 @@ export const sourceNodes = async (gatsby, pluginOptions) => {
           htmlSerializer,
           nodeHelpers,
           createNode,
+          createNodeId,
           touchNode,
           store,
-          cache,
-        })
+          cache
+        });
 
-        return node
-      })
+        return node;
+      });
 
-      const node = await Node(doc)
-      createNode(node)
-    }),
-  )
+      const node = await Node(doc);
+      createNode(node);
+    })
+  );
 
-  return
-}
+  return;
+};
