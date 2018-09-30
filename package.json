@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-prismic-stoutlabs",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Gatsby source plugin for building websites using prismic.io as the data source",
   "scripts": {
     "prepublish": "npm run build",
@@ -8,10 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "babel -w src --out-dir ."
   },
-  "homepage": "https://github.com/stoutlabs/gatsby-source-prismic-stoutlabs",
+  "homepage": "https://github.com/stoutlabs/gatsby-source-prismic",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stoutlabs/gatsby-source-prismic-stoutlabs"
+    "url": "https://github.com/stoutlabs/gatsby-source-prismic"
   },
   "keywords": [
     "gatsby",
