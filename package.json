@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-prismic-stoutlabs",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Gatsby source plugin for building websites using prismic.io as the data source. Forked from Angelo Ashmore's original plugin.",
   "scripts": {
     "prepublish": "npm run build",
